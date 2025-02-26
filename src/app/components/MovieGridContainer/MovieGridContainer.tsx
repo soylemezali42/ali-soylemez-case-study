@@ -41,6 +41,10 @@ export default async function MovieGridContainer({ searchParams }: Props) {
               <td>Loading</td>
             </tr>
           }
+          /**
+           * This key is required for suspension to work with searchParams changes.
+           */
+          key={String(searchParams?.title) + searchParams?.page}
         >
           <MovieList searchParams={searchParams} />
         </Suspense>
