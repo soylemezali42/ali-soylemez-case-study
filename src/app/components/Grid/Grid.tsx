@@ -1,4 +1,4 @@
-type GridColumns<T> = {
+export type GridColumns<T> = {
   label: string;
   columnKey: keyof T;
 };
@@ -16,19 +16,14 @@ export type GridTableProps<T> = {
 
 export default function Grid<T>({ columns, data }: GridTableProps<T>) {
   return (
-    <div className="flex flex-col gap-2">
-      <table className="border-collapse border border-gray-300">
+    <div>
+      <table>
         <thead>
           <tr>
             {columns.map((column) => {
               return (
-                <th
-                  key={column.columnKey as string}
-                  className="border border-gray-300 p-2 bg-gray-100"
-                >
-                  <div className="flex flex-row items-center">
-                    {column.label}
-                  </div>
+                <th key={column.columnKey as string}>
+                  <div>{column.label}</div>
                 </th>
               );
             })}
@@ -36,18 +31,17 @@ export default function Grid<T>({ columns, data }: GridTableProps<T>) {
         </thead>
         <tbody>
           {data.map((row) => {
+            /**
+             * Burada rowların key'i olarak id bekliyoruz.
+             * Ancak bu tamamen verinin şekline bağlı olarak
+             * tekrar düşünülebilir. Bu bileşeni generic yaptığımızdan
+             * dolayı bu şekilde bir yöntem uyguladık.
+             */
             return (
               <tr key={row.id}>
                 {columns.map(({ columnKey }, index) => {
                   const cellRecord = row[columnKey] as React.ReactNode;
-                  return (
-                    <td
-                      key={`${row.id}-${index}`}
-                      className="border border-gray-300 p-2"
-                    >
-                      {cellRecord}
-                    </td>
-                  );
+                  return <td key={`${row.id}-${index}`}>{cellRecord}</td>;
                 })}
               </tr>
             );
