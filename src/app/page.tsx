@@ -1,5 +1,6 @@
 import MovieGrid from "./components/MovieGrid";
 import MovieSearch from "./components/MovieSearch";
+import Pagination from "./components/Pagination";
 import getMovieList from "./queries/getMovieList";
 import { SearchParams } from "./types/pageParams";
 import { INITIAL_SEARCH_TERM } from "./utils/constants";
@@ -10,10 +11,7 @@ type PageProps = {
 
 export default async function Home(props: PageProps) {
   // The await part gives a warning, but the documentation says the opposite.
-  const searchParams = await props.searchParams;
-  /**
-   * Launch with the initial search term by default.
-   */
+  /*  const searchParams = await props.searchParams;
   const searchTerm = searchParams?.title || INITIAL_SEARCH_TERM;
   const movieList = await getMovieList({ searchTerm });
 
@@ -30,5 +28,6 @@ export default async function Home(props: PageProps) {
         </main>
       </div>
     );
-  }
+  } */
+  return <Pagination />;
 }

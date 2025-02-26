@@ -1,9 +1,10 @@
 "use client";
 
 import { INITIAL_SEARCH_TERM } from "@/app/utils/constants";
-import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
+import IconButton from "../IconButton";
+import useQueryString from "@/app/hooks/useQueryString";
 
 /**
  * This component could have been more user friendly using the useDebounce function.
@@ -18,13 +19,14 @@ export default function MovieSearch() {
 
   const router = useRouter();
   const pathname = usePathname();
+  const createQueryString = useQueryString();
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
   const handleRouting = () => {
-    router.push(pathname + "?title=" + searchTerm);
+    router.push(pathname + "?" + createQueryString("title", searchTerm));
   };
 
   return (
@@ -36,9 +38,14 @@ export default function MovieSearch() {
         value={searchTerm}
         onChange={handleSearch}
       />
-      <button type="submit" onClick={handleRouting}>
-        <Image src="/search.svg" alt="Search button" width={24} height={24} />
-      </button>
+      <IconButton
+        buttonProps={{
+          type: "submit",
+          onClick: handleRouting,
+        }}
+        src="/search.svg"
+        alt="Search Button"
+      />
     </form>
   );
 }
