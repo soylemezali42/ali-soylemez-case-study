@@ -12,10 +12,8 @@ import useQueryString from "@/app/hooks/useQueryString";
  */
 export default function MovieSearch() {
   const searchParams = useSearchParams();
-  const titleSearch = searchParams.get("title");
-  const [searchTerm, setSearchTerm] = useState(
-    titleSearch || INITIAL_SEARCH_TERM
-  );
+  const title = searchParams.get("title");
+  const [searchTerm, setSearchTerm] = useState(title || INITIAL_SEARCH_TERM);
 
   const router = useRouter();
   const pathname = usePathname();

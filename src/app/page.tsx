@@ -1,33 +1,20 @@
-import MovieGrid from "./components/MovieGrid";
+import MovieGridContainer from "./components/MovieGridContainer";
 import MovieSearch from "./components/MovieSearch";
-import Pagination from "./components/Pagination";
-import getMovieList from "./queries/getMovieList";
 import { SearchParams } from "./types/pageParams";
-import { INITIAL_SEARCH_TERM } from "./utils/constants";
 
-type PageProps = {
-  searchParams: SearchParams;
+type Props = {
+  searchParams: Promise<SearchParams>;
 };
 
-export default async function Home(props: PageProps) {
-  // The await part gives a warning, but the documentation says the opposite.
-  /*  const searchParams = await props.searchParams;
-  const searchTerm = searchParams?.title || INITIAL_SEARCH_TERM;
-  const movieList = await getMovieList({ searchTerm });
+export default async function Home(props: Props) {
+  const searchParams = await props.searchParams;
 
-  if (movieList.Error) {
-    return <div>Error Occured</div>;
-  }
-
-  if (movieList.Search) {
-    return (
-      <div>
-        <main>
-          <MovieSearch />
-          <MovieGrid data={movieList.Search} />
-        </main>
-      </div>
-    );
-  } */
-  return <Pagination />;
+  return (
+    <div>
+      <main>
+        <MovieSearch />
+        <MovieGridContainer searchParams={searchParams} />
+      </main>
+    </div>
+  );
 }

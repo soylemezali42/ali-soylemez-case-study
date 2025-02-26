@@ -24,12 +24,16 @@ export default function Pagination({ listCount }: Props) {
     switch (paginationType) {
       case "first":
         newPageNumber = 1;
+        break;
       case "previous":
         newPageNumber -= 1;
+        break;
       case "next":
         newPageNumber += 1;
+        break;
       case "last":
         newPageNumber = totalPageCount;
+        break;
     }
 
     router.push(pathname + "?" + createQueryString("page", newPageNumber));
