@@ -9,10 +9,13 @@ type Props = {
 };
 
 export default async function MovieList({ searchParams }: Props) {
-  const searchTerm = searchParams?.title || INITIAL_SEARCH_TERM;
+  const searchTerm =
+    searchParams?.title !== null ? searchParams?.title : INITIAL_SEARCH_TERM;
   const page = searchParams?.page || "1";
+  const year = searchParams?.year;
+  const type = searchParams?.type;
 
-  const movieList = await getMovieList({ searchTerm, page });
+  const movieList = await getMovieList({ searchTerm, page, year, type });
 
   if (movieList.Error && movieList.Search) {
     return <div>Error Occured</div>;

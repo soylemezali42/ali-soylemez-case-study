@@ -18,7 +18,7 @@ export const movieColumns: DataGridColumns<Movie>[] = [
     columnKey: "Title",
   },
   {
-    label: "Release Date",
+    label: "Release Year",
     columnKey: "Year",
   },
   {

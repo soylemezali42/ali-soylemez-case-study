@@ -10,6 +10,8 @@ export default function MoviePagination() {
   const searchParams = useSearchParams();
   const firstSearchTitle = searchParams.get("title");
   const searchTerm = firstSearchTitle || INITIAL_SEARCH_TERM;
+  const year = searchParams.get("year");
+  const type = searchParams.get("type") || undefined;
 
   const pathname = usePathname();
   const router = useRouter();
@@ -18,12 +20,17 @@ export default function MoviePagination() {
 
   useEffect(() => {
     async function getMovieListCount() {
-      const res = await getMovieList({ searchTerm, fromClient: true });
+      const res = await getMovieList({
+        searchTerm,
+        year,
+        fromClient: true,
+        type,
+      });
       setListCount(res.totalResults || 0);
     }
 
     getMovieListCount();
-  }, [searchTerm]);
+  }, [searchTerm, year, type]);
 
   /**
    * In this section, we ensure that the search text in the initial
