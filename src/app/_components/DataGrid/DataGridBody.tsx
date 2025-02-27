@@ -13,10 +13,10 @@ export default function DataGridBody<T>({ columns, data, href }: Props<T>) {
       {data.length ? (
         data.map((row) => {
           /**
-           * Burada rowların key'i olarak id bekliyoruz.
-           * Ancak bu tamamen verinin şekline bağlı olarak
-           * tekrar düşünülebilir. Bu bileşeni generic yaptığımızdan
-           * dolayı bu şekilde bir yöntem uyguladık.
+           * Here we expect id as the key of the rows.
+           * However, this can be reconsidered depending on the form of the data.
+           *  Since we made this component generic,
+           * we implemented such a method.
            */
           return (
             <Link href={`${href}/${row.id}`} legacyBehavior key={row.id}>
