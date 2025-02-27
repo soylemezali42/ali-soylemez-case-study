@@ -26,5 +26,7 @@ export default async function MovieList({ searchParams }: Props) {
     id: item.imdbID,
   }));
 
-  return <DataGridBody columns={movieColumns} data={normalizedData} />;
+  return (
+    <DataGridBody columns={movieColumns} data={normalizedData} href="/movie" />
+  );
 }
