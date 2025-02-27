@@ -1,4 +1,4 @@
-import { Movie } from "../components/MovieGridContainer";
+import { Movie } from "../_components/MovieGridContainer";
 
 type MovieResponse = {
   Search?: Movie[];

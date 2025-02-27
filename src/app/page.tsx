@@ -1,6 +1,6 @@
-import MovieGridContainer from "./components/MovieGridContainer";
-import MovieSearch from "./components/MovieSearch";
-import { SearchParams } from "./types/pageParams";
+import MovieGridContainer from "./_components/MovieGridContainer";
+import MovieSearch from "./_components/MovieSearch";
+import { SearchParams } from "./_types/pageParams";
 
 type Props = {
   searchParams: Promise<SearchParams>;

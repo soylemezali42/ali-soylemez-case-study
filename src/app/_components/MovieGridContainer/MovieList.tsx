@@ -1,6 +1,6 @@
-import getMovieList from "@/app/queries/getMovieList";
-import { SearchParams } from "@/app/types/pageParams";
-import { INITIAL_SEARCH_TERM } from "@/app/utils/constants";
+import getMovieList from "@/app/_queries/getMovieList";
+import { SearchParams } from "@/app/_types/pageParams";
+import { INITIAL_SEARCH_TERM } from "@/app/_utils/constants";
 import { DataGridBody } from "../DataGrid";
 import { movieColumns } from "./MovieGridContainer";
 

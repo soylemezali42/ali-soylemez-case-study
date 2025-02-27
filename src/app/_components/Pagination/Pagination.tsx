@@ -1,8 +1,8 @@
 "use client";
-import { GRID_DISPLAY_COUNT } from "@/app/utils/constants";
+import { GRID_DISPLAY_COUNT } from "@/app/_utils/constants";
 import IconButton from "../IconButton";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import useQueryString from "@/app/hooks/useQueryString";
+import useQueryString from "@/app/_hooks/useQueryString";
 
 type Props = {
   listCount: number;

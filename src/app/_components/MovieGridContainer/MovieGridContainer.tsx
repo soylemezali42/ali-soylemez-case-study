@@ -1,4 +1,4 @@
-import { SearchParams } from "@/app/types/pageParams";
+import { SearchParams } from "@/app/_types/pageParams";
 import DataGrid, { DataGridColumns } from "../DataGrid";
 import { Suspense } from "react";
 import MovieList from "./MovieList";

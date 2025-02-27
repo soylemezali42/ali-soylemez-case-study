@@ -1,7 +1,7 @@
 "use client";
 
-import getMovieList from "@/app/queries/getMovieList";
-import { INITIAL_SEARCH_TERM } from "@/app/utils/constants";
+import getMovieList from "@/app/_queries/getMovieList";
+import { INITIAL_SEARCH_TERM } from "@/app/_utils/constants";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Pagination from "../Pagination";

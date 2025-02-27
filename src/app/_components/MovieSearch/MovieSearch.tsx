@@ -1,10 +1,10 @@
 "use client";
 
-import { INITIAL_SEARCH_TERM } from "@/app/utils/constants";
+import { INITIAL_SEARCH_TERM } from "@/app/_utils/constants";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import IconButton from "../IconButton";
-import useQueryString from "@/app/hooks/useQueryString";
+import useQueryString from "@/app/_hooks/useQueryString";
 
 /**
  * This component could have been more user friendly using the useDebounce function.
