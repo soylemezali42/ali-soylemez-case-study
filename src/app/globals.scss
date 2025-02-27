@@ -1,3 +1,6 @@
+@import "_styles/utility.scss";
+@import "_styles/variables.scss";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -12,6 +15,7 @@
 
 html,
 body {
+  @include flex-row;
   max-width: 100vw;
   overflow-x: hidden;
 }
@@ -39,4 +43,15 @@ a {
   html {
     color-scheme: dark;
   }
+}
+/* ================== */
+/* Custom CSS Classes */
+/* ================== */
+
+main {
+  margin: 3 * $spacing;
+}
+
+.main-container {
+  @include flex-col;
 }

@@ -10,11 +10,10 @@ export default async function Home(props: Props) {
   const searchParams = await props.searchParams;
 
   return (
-    <div>
-      <main>
-        <MovieSearch />
-        <MovieGridContainer searchParams={searchParams} />
-      </main>
+    <div className="main-container">
+      <h1>The Movie List</h1>
+      <MovieSearch />
+      <MovieGridContainer searchParams={searchParams} />
     </div>
   );
 }
