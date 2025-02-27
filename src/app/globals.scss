@@ -1,5 +1,5 @@
-@import "_styles/utility.scss";
-@import "_styles/variables.scss";
+@use "_styles/utility.scss";
+@use "_styles/variables.scss";
 
 :root {
   --background: #ffffff;
@@ -15,7 +15,7 @@
 
 html,
 body {
-  @include flex-row;
+  @include utility.flex-row();
   max-width: 100vw;
   overflow-x: hidden;
 }
@@ -49,9 +49,102 @@ a {
 /* ================== */
 
 main {
-  margin: 3 * $spacing;
+  margin: 3 * variables.$spacing;
 }
 
-.main-container {
-  @include flex-col;
+.col-container {
+  @include utility.flex-col;
+}
+
+.row-container {
+  @include utility.flex-row;
+  gap: 5 * variables.$spacing;
+}
+
+button {
+  @include utility.border-radius;
+
+  display: flex inline;
+  align-items: center;
+  gap: variables.$spacing;
+  padding: (1.25 * variables.$spacing) (2 * variables.$spacing);
+  vertical-align: middle;
+  margin: variables.$spacing;
+  cursor: pointer;
+  background-color: white;
+  height: 30px;
+  text-align: center;
+  font-weight: bold;
+  transition: variables.$transition;
+
+  &:hover {
+    background-color: rgb(238, 236, 236);
+  }
+
+  &:disabled {
+    cursor: initial;
+    opacity: 0.3;
+    background-color: white;
+  }
+}
+
+input,
+select {
+  @include utility.border-radius;
+
+  padding: (1.25 * variables.$spacing) (2 * variables.$spacing);
+  vertical-align: middle;
+  margin: variables.$spacing;
+  background-color: white;
+  height: 30px;
+  transition: variables.$transition;
+  outline-color: variables.$gray;
+}
+
+table {
+  @include utility.border-radius;
+
+  border-collapse: collapse;
+  width: 600px;
+  height: 450px;
+  overflow-x: scroll;
+
+  thead,
+  tr {
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: (2 * variables.$spacing) (3 * variables.$spacing);
+  }
+
+  tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+
+  tbody tr:last-of-type {
+    border-bottom: 2px solid #000e0b;
+  }
+
+  tbody tr:hover {
+    cursor: pointer;
+    background-color: rgb(222, 240, 249);
+  }
+}
+
+.movie-pagination {
+  margin-left: auto;
+}
+
+.list-label {
+  display: inline-block;
+  font-weight: bold;
+  width: 100px;
+  margin-right: variables.$spacing;
+  margin-bottom: 2 * variables.$spacing;
+}
+
+li {
+  list-style: none;
 }

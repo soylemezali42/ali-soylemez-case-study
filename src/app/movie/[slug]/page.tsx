@@ -16,20 +16,23 @@ export default async function Page(props: Props) {
   const { Title, Error, Poster, Ratings, Response, ...rest } = movieDetail;
 
   if (Error) {
-    return <ErrorDisplay cause={movieDetail.Error} />;
+    return <ErrorDisplay cause={movieDetail.Error as string} />;
   }
 
   return (
-    <div>
+    <div className="col-container">
       <h1>{Title}</h1>
-      <Image src={Poster} alt={Title} width={300} height={400} />
-      <li>
-        {Object.keys(rest).map((k) => (
-          <ul key={k}>
-            {k}: {rest[k]}
-          </ul>
-        ))}
-      </li>
+      <div className="row-container">
+        <Image src={Poster} alt={Title} width={350} height={500} />
+        <li>
+          {Object.keys(rest).map((k) => (
+            <ul key={k}>
+              <span className="list-label">{k}</span>
+              <span>: {rest[k]}</span>
+            </ul>
+          ))}
+        </li>
+      </div>
     </div>
   );
 }

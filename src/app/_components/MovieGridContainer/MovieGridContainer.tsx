@@ -46,7 +46,7 @@ export default async function MovieGridContainer({ searchParams }: Props) {
         <Suspense
           fallback={
             <tr>
-              <td>Loading</td>
+              <td>Loading...</td>
             </tr>
           }
           /**

@@ -31,7 +31,7 @@ export default function MovieSearch() {
       queryString = createQueryString("year", releaseYear);
     }
 
-    if (type) {
+    if (type !== "Type") {
       queryString = createQueryString("type", type);
     }
 
@@ -43,7 +43,7 @@ export default function MovieSearch() {
       <input
         type="text"
         name="title"
-        placeholder="A movie title"
+        placeholder="Movie"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
@@ -51,10 +51,11 @@ export default function MovieSearch() {
         type="number"
         name="year"
         placeholder="Release Year"
-        value={releaseYear}
+        value={releaseYear || undefined}
         onChange={(e) => setReleaseYear(e.target.value)}
         min={1950}
         max={2030}
+        style={{ minWidth: "120px" }}
       />
 
       <select
@@ -62,7 +63,7 @@ export default function MovieSearch() {
         onChange={(e) => setType(e.target.value)}
         value={type}
       >
-        <option style={{ display: "none" }}>Select One</option>
+        <option style={{ display: "none" }}>Type</option>
         <option value="movie">Movie</option>
         <option value="series">Series</option>
         <option value="episode">Episode</option>
@@ -73,6 +74,7 @@ export default function MovieSearch() {
         buttonProps={{
           type: "submit",
           onClick: handleRouting,
+          style: { marginLeft: "120px" },
         }}
         src="/search.svg"
         alt="Search Button"

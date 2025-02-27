@@ -46,7 +46,7 @@ export default async function getMovieList({
     params.set("y", year as string);
   }
 
-  if (type) {
+  if (type !== "Type" && type !== undefined) {
     params.set("type", type as string);
   }
 

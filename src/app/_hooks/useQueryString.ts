@@ -7,7 +7,7 @@ export default function useQueryString() {
   // Get a new searchParams string by merging the current
   // searchParams with a provided key/value pair
   const createQueryString = useCallback(
-    (name: string, value: string | number) => {
+    (name: string, value: string | number | undefined) => {
       const params = new URLSearchParams(searchParams.toString());
       params.set(name, String(value));
 

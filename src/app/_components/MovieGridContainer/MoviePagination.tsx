@@ -42,5 +42,9 @@ export default function MoviePagination() {
     }
   }, [router, pathname, firstSearchTitle]);
 
-  return <Pagination listCount={listCount} />;
+  return (
+    <div className="movie-pagination">
+      <Pagination listCount={listCount} />
+    </div>
+  );
 }
