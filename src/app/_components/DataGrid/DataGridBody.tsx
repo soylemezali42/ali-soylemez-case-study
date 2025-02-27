@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { DataGridColumns, RowData } from "./DataGrid";
 
@@ -31,7 +30,9 @@ export default function DataGridBody<T>({ columns, data, href }: Props<T>) {
           );
         })
       ) : (
-        <div>No Data</div>
+        <tr>
+          <td>No Data</td>
+        </tr>
       )}
     </>
   );

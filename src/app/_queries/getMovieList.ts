@@ -1,6 +1,6 @@
 import { Movie } from "../_components/MovieGridContainer";
 
-type MovieResponse = {
+type MovieListResponse = {
   Search?: Movie[];
   totalResults?: number;
   Response: boolean;
@@ -21,7 +21,7 @@ export default async function getMovieList({
   year,
   type,
   fromClient = false,
-}: MovieListProps): Promise<MovieResponse> {
+}: MovieListProps): Promise<MovieListResponse> {
   /**
    * Since we will be querying from both the client and the server side,
    * we find the API key.

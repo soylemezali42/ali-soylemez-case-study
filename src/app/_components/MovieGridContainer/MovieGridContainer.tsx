@@ -4,12 +4,20 @@ import { Suspense } from "react";
 import MovieList from "./MovieList";
 import MoviePagination from "./MoviePagination";
 
+/**
+ * Movie type actually contains more fields,
+ * but for now, this much fields will be enough to show.
+ */
 export type Movie = {
   Title: string;
   Year: string;
   imdbID: string;
   Type: string;
+  Genre: string;
+  Plot: string;
+  Country: string;
   Poster: string;
+  imdbRating: string;
 };
 
 export const movieColumns: DataGridColumns<Movie>[] = [

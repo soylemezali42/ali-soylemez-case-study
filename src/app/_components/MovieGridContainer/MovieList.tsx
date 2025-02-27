@@ -3,6 +3,7 @@ import { SearchParams } from "@/app/_types/pageParams";
 import { INITIAL_SEARCH_TERM } from "@/app/_utils/constants";
 import { DataGridBody } from "../DataGrid";
 import { movieColumns } from "./MovieGridContainer";
+import ErrorDisplay from "../ErrorDisplay";
 
 type Props = {
   searchParams: SearchParams;
@@ -18,7 +19,7 @@ export default async function MovieList({ searchParams }: Props) {
   const movieList = await getMovieList({ searchTerm, page, year, type });
 
   if (movieList.Error && movieList.Search) {
-    return <div>Error Occured</div>;
+    return <ErrorDisplay cause={movieList.Error} />;
   }
 
   const normalizedData = (movieList.Search || []).map((item) => ({
